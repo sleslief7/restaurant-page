@@ -14,13 +14,7 @@ navItems.forEach((navItem) => {
     const el = e.currentTarget;
     setCurrentNavBtn(el.id);
     contentDiv.innerHTML = "";
-    const content =
-      el.name === "home"
-        ? homeContent()
-        : el.name === "menu"
-        ? menuContent()
-        : aboutContent();
-    contentDiv.appendChild(content);
+    contentDiv.appendChild(getContentByName(el));
   });
 });
 
@@ -28,4 +22,12 @@ function setCurrentNavBtn(navBtnId) {
   const currentNavItem = document.getElementById(navBtnId);
   navItems.forEach((x) => x.classList.toggle("current", false));
   currentNavItem.classList.add("current");
+}
+
+function getContentByName(el) {
+  return el.name === "home"
+    ? homeContent()
+    : el.name === "menu"
+    ? menuContent()
+    : aboutContent();
 }

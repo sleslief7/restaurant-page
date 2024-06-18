@@ -6,6 +6,10 @@ module.exports = {
   entry: {
     index: "./src/index.js",
   },
+  cache: false,
+  devServer: {
+    static: "./dist",
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
@@ -16,6 +20,9 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
+  optimization: {
+    runtimeChunk: "single",
+  },
   module: {
     rules: [
       {
@@ -24,6 +31,10 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
     ],

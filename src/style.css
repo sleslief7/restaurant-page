@@ -10,7 +10,7 @@
 }
 body {
   font-family: "DMSans";
-  height: 100vh;
+  min-height: 100%;
   background: linear-gradient(0deg, rgb(255, 255, 255) 30%, rgb(190, 190, 190));
 }
 header {
@@ -21,6 +21,7 @@ header {
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: 100;
 }
 #nav-bar {
   width: 100%;
@@ -29,7 +30,7 @@ header {
   gap: 30px;
 }
 #content {
-  position: relative;
+  position: absolute;
   top: 60px;
   width: 100%;
   display: flex;
@@ -48,19 +49,47 @@ header {
   background-color: rgba(20, 20, 20, 0.822);
   color: rgb(11, 132, 145);
 }
-#home-container {
+#home-container,
+#menu-container,
+#about-container {
+  margin: 2% 0;
+  padding: 2%;
   border: 2px solid black;
-  width: 40%;
+  border-radius: 15px;
+  width: 20%;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.show {
-  display: block;
+#about-container > h1 {
+  margin-bottom: 15px;
+  font-size: 2.5rem;
 }
-.disabled {
-  display: none;
+h1 {
+  text-align: center;
+}
+img {
+  width: 50%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px 2px rgb(83, 83, 83);
+  margin: 15px 0;
+}
+#menu-h1 {
+  font-size: 3rem;
+}
+#menu-container > div:not(:last-child) {
+  border-bottom: 2px dashed black;
+}
+.price {
+  font-weight: 800;
+  margin-top: 2%;
+  padding-bottom: 15px;
+}
+.card {
+  text-align: center;
+  margin: 3%;
 }
 .current {
   color: white;
